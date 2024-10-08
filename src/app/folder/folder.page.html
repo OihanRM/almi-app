@@ -17,7 +17,12 @@
       <p>Bienvenido a la página de gestión de alumnado del centro de Estudios Almi</p>
     </ion-card-content>    
   </ion-card>
+  <ion-list>
+    <ion-item *ngFor="let item of alumnos">
+      <ion-label>{{ item.nombre }}</ion-label>
+    </ion-item>
+  </ion-list>
 
-  <ion-searchbar placeholder="Inserta el nombre"></ion-searchbar>
+  <!-- <ion-searchbar placeholder="Inserta el nombre"></ion-searchbar> -->
 
 </ion-content>
