@@ -1,5 +1,7 @@
 {
   "name": "almi-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
