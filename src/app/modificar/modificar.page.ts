@@ -31,7 +31,7 @@ export class ModificarPage implements OnInit {
     const loading = await this.loadingController.create({message:'Cargando datos'});
     await loading.present();
 
-    await this.alumnadoService.modificarAlumno(this.alumno.id, this.alumno).subscribe(
+    await this.alumnadoService.modificarAlumno(this.alumno).subscribe(
       res => {
         console.log(res);
         loading.dismiss();

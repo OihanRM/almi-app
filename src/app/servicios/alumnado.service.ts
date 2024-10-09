@@ -27,8 +27,8 @@ export class AlumnadoService {
     return this.httpClient.delete(this.url + "delete/" + id);
   }
 
-  modificarAlumno(id:number,alumno:Alumno):Observable<any>{
+  modificarAlumno(alumno:Alumno):Observable<any>{
 
-    return this.httpClient.put(this.url + "update/"+ id, alumno);
+    return this.httpClient.put(this.url + "update/"+ alumno.id, alumno);
   }
 }
