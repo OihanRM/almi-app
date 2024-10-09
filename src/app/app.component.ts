@@ -9,6 +9,8 @@ import { Platform } from '@ionic/angular';
 export class AppComponent implements OnInit {
   public appPages = [
     { title: 'Almi', url: '/folder', icon: 'home' },
+    { title: 'Alta', url: '/alta', icon: 'add' },
+    { title: 'Baja', url: '/baja', icon: 'trash' },
   ];
   public selectedIndex: number | undefined;
 

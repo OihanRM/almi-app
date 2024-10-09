@@ -10,6 +10,14 @@ const routes: Routes = [
   {
     path: 'folder',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'alta',
+    loadChildren: () => import('./alta/alta.module').then( m => m.AltaPageModule)
+  },
+  {
+    path: 'baja',
+    loadChildren: () => import('./baja/baja.module').then( m => m.BajaPageModule)
   }
 ];
 

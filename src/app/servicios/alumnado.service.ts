@@ -15,4 +15,15 @@ export class AlumnadoService {
     return this.httpClient.get<Alumno[]>(this.url);
 
   }
+
+  crearAlumno(alumno:Alumno):Observable<any>{
+    if(alumno.fecha){
+      alumno.fecha = new Date(alumno.fecha);
+    }
+    return this.httpClient.post<Alumno>(this.url +"add", alumno);
+  }
+
+  borrarAlumno(id:number):Observable<any>{
+    return this.httpClient.delete(this.url + "delete/" + id);
+  }
 }

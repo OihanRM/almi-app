@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Crear Alumno</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="enviarFormulario()">
+    <ion-item>
+      <ion-label>DNI</ion-label>
+      <ion-input type="text" name="dni" [(ngModel)]="alumno.dni"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" name="nombre" [(ngModel)]="alumno.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido1</ion-label>
+      <ion-input type="text" name="apellido1" [(ngModel)]="alumno.apellido1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido2</ion-label>
+      <ion-input type="text" name="apellido2" [(ngModel)]="alumno.apellido2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha de Nacimiento</ion-label>
+      <ion-datetime name="fecha" [(ngModel)]="alumno.fecha"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Provincia</ion-label>
+      <ion-input type="text" name="provincia" [(ngModel)]="alumno.provincia"></ion-input>
+    </ion-item>
+    <ion-button expand="full" color="primary" type="submit">Añadir</ion-button>  
+  </form>
+</ion-content>
