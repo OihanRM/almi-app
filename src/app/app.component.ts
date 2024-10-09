@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
     { title: 'Almi', url: '/folder', icon: 'home' },
     { title: 'Alta', url: '/alta', icon: 'add' },
     { title: 'Baja', url: '/baja', icon: 'trash' },
+    { title: 'Mod', url: '/mod', icon: 'create' },
   ];
   public selectedIndex: number | undefined;
 

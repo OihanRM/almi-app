@@ -18,6 +18,14 @@ const routes: Routes = [
   {
     path: 'baja',
     loadChildren: () => import('./baja/baja.module').then( m => m.BajaPageModule)
+  },
+  {
+    path: 'mod',
+    loadChildren: () => import('./mod/mod.module').then( m => m.ModPageModule)
+  },
+  {
+    path: 'modificar',
+    loadChildren: () => import('./modificar/modificar.module').then( m => m.ModificarPageModule)
   }
 ];
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlumnadoService } from '../servicios/alumnado.service';
 import { Alumno } from '../models/alumno';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-baja',
@@ -11,7 +12,7 @@ import { LoadingController } from '@ionic/angular';
 export class BajaPage implements OnInit {
 
   alumnos: Alumno[] = [];
-  constructor(private alumnadoService:AlumnadoService, public loadingController:LoadingController) { }
+  constructor(private alumnadoService:AlumnadoService, public loadingController:LoadingController, public alertController:AlertController, private router:Router) { }
 
   ngOnInit() {
     this.getAlumnosBaja();
@@ -35,16 +36,44 @@ export class BajaPage implements OnInit {
     )
   }
   
-  borrarAlumno(id:number){
-    this.alumnadoService.borrarAlumno(id).subscribe(
+  async borrarAlumno(id:number){
+    const loading = await this.loadingController.create({message:'Borrando datos'});
+    await loading.present();
+
+    await this.alumnadoService.borrarAlumno(id).subscribe(
       res=>{
         console.log(res);
+        loading.dismiss();
         this.getAlumnosBaja();
       },
       err=>{
         console.log(err);
+        loading.dismiss();
       }
     );
+  }
+
+  async presentAlertConfirm(id:number) {
+    const alert = await this.alertController.create({
+      header: 'Confirmar',
+      message: '¿Estás seguro de que quieres borrar este alumno?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: (blah) => {
+            console.log('Cancelar');
+          },
+        }, {
+          text: 'Borrar',
+          handler: () => {
+            this.borrarAlumno(id);
+            this.router.navigateByUrl('');
+          },
+        },
+      ],
+    });
+    await alert.present();
   }
 
 }

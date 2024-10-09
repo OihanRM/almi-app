@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>baja</ion-title>
+    <ion-title>mod</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,8 +8,7 @@
   <ion-list>
     <ion-item *ngFor="let item of alumnos">
       <ion-label>{{ item.nombre }}</ion-label>
-      <ion-button (click)="presentAlertConfirm(item.id)">Borrar</ion-button>
+      <ion-button (click)="modificarAlumno(item)">Modificar</ion-button>
     </ion-item>
   </ion-list>
-
 </ion-content>
